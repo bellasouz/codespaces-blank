@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acessibilidade</title>
+  <style>
+    .accessibility-tools {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #f1f1f1;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .font-size-btn, .high-contrast-btn {
+      display: block;
+      margin-bottom: 5px;
+      padding: 5px 10px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .high-contrast {
+      background-color: #000 !important;
+      color: #fff !important;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="accessibility-tools">
+    <button class="font-size-btn font-size-increase">A+</button>
+    <button class="font-size-btn font-size-decrease">A-</button>
+    <button class="font-size-btn font-size-reset">A</button>
+    <button class="high-contrast-btn">Modo alto contraste</button>
+  </div>
+
+  <div class="content">
+    <h1>Travel Angels</h1>
+    <p> A Travel Angels oferece roteiros de viagem personalizados e uma experiência única, responsável e inesquecível, combinando Inteligência Artificial, especialistas em planejamento de viagens e guias locais. </p>
+    <p> Comece sua aventura hoje.testestestestetestetestetestetestetestetestetesteteste</p>
+  </div>
+
+  <script>
+    // Obter todos os elementos relevantes
+    const fontSizeIncreaseBtn = document.querySelector('.font-size-increase');
+    const fontSizeDecreaseBtn = document.querySelector('.font-size-decrease');
+    const fontSizeResetBtn = document.querySelector('.font-size-reset');
+    const highContrastBtn = document.querySelector('.high-contrast-btn');
+    const body = document.querySelector('body');
+    const content = document.querySelector('.content');
+
+    // Variável para armazenar o tamanho da fonte atual
+    let currentFontSize = 16;
+
+    // Função para aumentar o tamanho da fonte
+    function increaseFontSize() {
+      currentFontSize += 2;
+      body.style.fontSize = `${currentFontSize}px`;
+      content.style.fontSize = `${currentFontSize}px`;
+    }
+
+    // Função para diminuir o tamanho da fonte
+    function decreaseFontSize() {
+      currentFontSize -= 2;
+      body.style.fontSize = `${currentFontSize}px`;
+      content.style.fontSize = `${currentFontSize}px`;
+    }
+
+    // Função para restaurar o tamanho da fonte padrão
+    function resetFontSize() {
+      currentFontSize = 16;
+      body.style.fontSize = '16px';
+      content.style.fontSize = '16px';
+    }
+
+    // Função para ativar/desativar o modo de alto contraste
+    function toggleHighContrast() {
+      body.classList.toggle('high-contrast');
+    }
+
+    // Adicionar event listeners aos botões
+    fontSizeIncreaseBtn.addEventListener('click', increaseFontSize);
+    fontSizeDecreaseBtn.addEventListener('click', decreaseFontSize);
+    fontSizeResetBtn.addEventListener('click', resetFontSize);
+    highContrastBtn.addEventListener('click', toggleHighContrast);
+  </script>
+</body>
+</html>
